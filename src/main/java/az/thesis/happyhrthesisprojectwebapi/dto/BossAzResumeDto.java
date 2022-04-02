@@ -1,16 +1,18 @@
 package az.thesis.happyhrthesisprojectwebapi.dto;
 
+import lombok.Builder;
+
+@Builder(toBuilder = true)
 public class BossAzResumeDto {
     private String occupation;
-    private String salary;
+    private int salary;
     private String name;
     private String city;
-    private String age;
+    private int age;
     private String gender;
     private String bumpedTime;
     private String expireTime;
     private String phone;
-    private String email;
     private String skills;
     private String education;
     private String educationDetails;
@@ -21,9 +23,9 @@ public class BossAzResumeDto {
     public BossAzResumeDto() {
     }
 
-    public BossAzResumeDto(String occupation, String salary, String name, String city,
-                           String age, String gender, String bumpedTime, String expireTime,
-                           String phone, String email, String skills, String education,
+    public BossAzResumeDto(String occupation, int salary, String name, String city,
+                           int age, String gender, String bumpedTime, String expireTime,
+                           String phone, String skills, String education,
                            String educationDetails, String experience, String experienceDetails,
                            String additionalInfo) {
         this.occupation = occupation;
@@ -35,7 +37,6 @@ public class BossAzResumeDto {
         this.bumpedTime = bumpedTime;
         this.expireTime = expireTime;
         this.phone = phone;
-        this.email = email;
         this.skills = skills;
         this.education = education;
         this.educationDetails = educationDetails;
@@ -52,11 +53,11 @@ public class BossAzResumeDto {
         this.occupation = occupation;
     }
 
-    public String getSalary() {
+    public int getSalary() {
         return salary;
     }
 
-    public void setSalary(String salary) {
+    public void setSalary(int salary) {
         this.salary = salary;
     }
 
@@ -76,11 +77,11 @@ public class BossAzResumeDto {
         this.city = city;
     }
 
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
     }
 
@@ -114,14 +115,6 @@ public class BossAzResumeDto {
 
     public void setPhone(String phone) {
         this.phone = phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getSkills() {

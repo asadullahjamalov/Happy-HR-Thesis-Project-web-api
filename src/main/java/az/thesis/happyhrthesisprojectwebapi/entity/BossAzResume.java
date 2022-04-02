@@ -1,13 +1,13 @@
 package az.thesis.happyhrthesisprojectwebapi.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "boss_az_resumes")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
@@ -16,10 +16,10 @@ public class BossAzResume {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String occupation;
-    private String salary;
+    private int salary;
     private String name;
     private String city;
-    private String age;
+    private int age;
     private String gender;
     private String bumpedTime;
     private String expireTime;

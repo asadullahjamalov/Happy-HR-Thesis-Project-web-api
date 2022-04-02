@@ -72,30 +72,18 @@ public class BossAzResumeScraper {
             Elements experienceDetailsElement = document.getElementsByClass("experience_info params-i-val");
             Elements additionalInfoElement = document.getElementsByClass("personal params-i-val");
 
-            System.out.println(occupationElement.text() + "   " + salaryElement.text() + "   " + nameElement.text()
-                    + "   " + cityElement.text() + "   " + ageElement.text() + "   " + genderElement.text()
-                    + "   " + bumpedTimeElement.text() + "   " + expireTimeElement.text() + "   " + phoneElement.text()
-                    + "   " + skillsElement.text() + "   " + educationElement.text()
-                    + "   " + educationDetailsElement.text() + "   " + experienceElement.text()
-                    + "   " + experienceDetailsElement.text() + "   " + additionalInfoElement.text());
-
-            bossAzResumeRepo.save(new BossAzResume().toBuilder().additionalInfo(additionalInfoElement.text()).age(ageElement.text())
+            bossAzResumeRepo.save(new BossAzResume().toBuilder().additionalInfo(additionalInfoElement.text())
+                    .age(Integer.parseInt(ageElement.text().split(" ").clone()[0]))
                     .bumpedTime(bumpedTimeElement.text()).expireTime(expireTimeElement.text()).city(cityElement.text())
-                    .education(educationDetailsElement.text()).educationDetails(educationDetailsElement.text())
+                    .education(educationElement.text()).educationDetails(educationDetailsElement.text())
                     .experience(experienceElement.text()).experienceDetails(experienceDetailsElement.text())
-                    .gender(genderElement.text()).name(nameElement.text()).salary(salaryElement.text())
+                    .gender(genderElement.text()).name(nameElement.text())
+                    .salary(Integer.parseInt(salaryElement.text().split(" ").clone()[0]))
                     .occupation(occupationElement.text()).skills(skillsElement.text()).phone(phoneElement.text())
                     .build());
 
         }
     }
 
-//    @Scheduled(cron = "0 0 1 * * ?", zone = "Asia/Baku")
-//    public void saveBossAzResumes() {
-//        for (UserEvent userEvent : userEventRepo.findAll()) {
-//            userEvent = colorAssigningUtil.setColorTypeByDate(userEvent);
-//            bossAzResumeRepo.save(resume);
-//        }
-//    }
 
 }

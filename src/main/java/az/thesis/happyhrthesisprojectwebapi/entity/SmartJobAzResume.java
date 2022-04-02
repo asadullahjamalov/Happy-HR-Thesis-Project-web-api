@@ -1,13 +1,13 @@
 package az.thesis.happyhrthesisprojectwebapi.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "smart_job_az_resumes")
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
@@ -21,7 +21,7 @@ public class SmartJobAzResume {
     private String workingTime;
     @Column(columnDefinition="text")
     private String about;
-    private String minimumSalary;
+    private Double minimumSalary;
     private String gender;
     private String birthDate;
     private String education;

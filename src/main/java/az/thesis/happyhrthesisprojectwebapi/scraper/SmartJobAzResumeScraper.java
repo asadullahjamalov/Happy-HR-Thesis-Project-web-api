@@ -69,7 +69,8 @@ public class SmartJobAzResumeScraper {
                 smartJobAzResumeRepo.save(new SmartJobAzResume().toBuilder().name(nameElement.text())
                         .hasDrivingLicence(resumeDetails.get(0)).hasCar(resumeDetails.get(1))
                         .workingTime(resumeDetails.get(2)).about(resumeDetails.get(3))
-                        .minimumSalary(resumeDetails.get(4)).gender(resumeDetails.get(5))
+                        .minimumSalary(Double.parseDouble(resumeDetails.get(4).split(" ").clone()[0]))
+                        .gender(resumeDetails.get(5))
                         .birthDate(resumeDetails.get(6)).education(resumeDetails.get(7))
                         .experience(resumeDetails.get(8)).city(resumeDetails.get(9))
                         .address(resumeDetails.get(10)).phone(resumeDetails.get(11)).build());
