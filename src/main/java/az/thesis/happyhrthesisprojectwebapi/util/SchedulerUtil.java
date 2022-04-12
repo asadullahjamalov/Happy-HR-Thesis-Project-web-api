@@ -1,7 +1,6 @@
 package az.thesis.happyhrthesisprojectwebapi.util;
 
-import az.thesis.happyhrthesisprojectwebapi.scraper.BossAzResumeScraper;
-import az.thesis.happyhrthesisprojectwebapi.scraper.SmartJobAzResumeScraper;
+import az.thesis.happyhrthesisprojectwebapi.service.ResumeService;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -10,19 +9,15 @@ import java.io.IOException;
 @Component
 public class SchedulerUtil {
 
-    private final BossAzResumeScraper bossAzResumeScraper;
-    private final SmartJobAzResumeScraper smartJobAzResumeScraper;
+    private final ResumeService resumeService;
 
-    public SchedulerUtil(BossAzResumeScraper bossAzResumeScraper,
-                         SmartJobAzResumeScraper smartJobAzResumeScraper) {
-        this.bossAzResumeScraper = bossAzResumeScraper;
-        this.smartJobAzResumeScraper = smartJobAzResumeScraper;
+    public SchedulerUtil(ResumeService resumeService) {
+        this.resumeService = resumeService;
     }
 
-    @Scheduled(cron = "0 0 1 * * ?", zone = "Asia/Baku")
-    public void saveResumesToDatabase() throws IOException {
-       bossAzResumeScraper.getBossAzResumes();
-       smartJobAzResumeScraper.getSmartJobAzResumes();
+    @Scheduled(cron = "0 0 * * *", zone = "Asia/Baku")
+    public void updateResumeDatabase() throws IOException {
+        resumeService.updateScrapedResumeDatabase();
     }
 
 }

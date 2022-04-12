@@ -9,6 +9,7 @@ import az.thesis.happyhrthesisprojectwebapi.scraper.BossAzResumeScraper;
 import az.thesis.happyhrthesisprojectwebapi.scraper.SmartJobAzResumeScraper;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -43,6 +44,12 @@ public class ResumeService {
 //        return smartJobAzResumeScraper.getTotalPageNumber();
 //    }
 
+    public void updateScrapedResumeDatabase() throws IOException {
+        bossAzResumeRepo.deleteAll();
+        smartJobAzResumeRepo.deleteAll();
+        bossAzResumeScraper.getBossAzResumes();
+        smartJobAzResumeScraper.getSmartJobAzResumes();
+    }
 
     public List<BossAzResumeDto> getAllBossAzResumesByAge(int age) {
         return ResumeMapper.bossAzEntityListToDtoList(bossAzResumeRepo.getBossAzResumesByAge(age));

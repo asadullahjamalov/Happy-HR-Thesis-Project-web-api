@@ -1,8 +1,10 @@
 package az.thesis.happyhrthesisprojectwebapi.mapper;
 
 import az.thesis.happyhrthesisprojectwebapi.dto.BossAzResumeDto;
+import az.thesis.happyhrthesisprojectwebapi.dto.JobApplicantResumeDto;
 import az.thesis.happyhrthesisprojectwebapi.dto.SmartJobAzResumeDto;
 import az.thesis.happyhrthesisprojectwebapi.entity.BossAzResume;
+import az.thesis.happyhrthesisprojectwebapi.entity.JobApplicantResume;
 import az.thesis.happyhrthesisprojectwebapi.entity.SmartJobAzResume;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
@@ -29,5 +31,9 @@ public interface ResumeMapper {
     List<SmartJobAzResumeDto> smartJobAzEntityListToDtoList(List<SmartJobAzResume> entityList);
 
     List<SmartJobAzResume> smartJobAzDtoListToEntityList(List<SmartJobAzResumeDto> dtoList);
+
+    JobApplicantResumeDto jobApplicantResumeEntityToDto(JobApplicantResume entity);
+
+    JobApplicantResume jobApplicantResumeDtoToEntity(JobApplicantResumeDto dto);
 
 }
