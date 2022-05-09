@@ -17,7 +17,7 @@ public class ResumeService {
 
     private final BossAzResumeScraper bossAzResumeScraper;
     private final SmartJobAzResumeScraper smartJobAzResumeScraper;
-    private final ResumeMapper ResumeMapper;
+    private final ResumeMapper resumeMapper;
     private final BossAzResumeRepo bossAzResumeRepo;
     private final SmartJobAzResumeRepo smartJobAzResumeRepo;
 
@@ -28,7 +28,7 @@ public class ResumeService {
                          SmartJobAzResumeRepo smartJobAzResumeRepo) {
         this.bossAzResumeScraper = bossAzResumeScraper;
         this.smartJobAzResumeScraper = smartJobAzResumeScraper;
-        this.ResumeMapper = ResumeMapper;
+        this.resumeMapper = ResumeMapper;
         this.bossAzResumeRepo = bossAzResumeRepo;
         this.smartJobAzResumeRepo = smartJobAzResumeRepo;
     }
@@ -52,30 +52,30 @@ public class ResumeService {
     }
 
     public List<BossAzResumeDto> getAllBossAzResumesByAge(int age) {
-        return ResumeMapper.bossAzEntityListToDtoList(bossAzResumeRepo.getBossAzResumesByAge(age));
+        return resumeMapper.bossAzEntityListToDtoList(bossAzResumeRepo.getBossAzResumesByAge(age));
     }
 
     public List<BossAzResumeDto> getAllBossAzResumesByAgeInterval(int minAge, int maxAge) {
-        return ResumeMapper.bossAzEntityListToDtoList(
+        return resumeMapper.bossAzEntityListToDtoList(
                 bossAzResumeRepo.getBossAzResumesByAgeInterval(minAge, maxAge));
     }
 
     public List<BossAzResumeDto> getAllBossAzResumesBySalary(int salary) {
-        return ResumeMapper.bossAzEntityListToDtoList(bossAzResumeRepo.getBossAzResumesBySalary(salary));
+        return resumeMapper.bossAzEntityListToDtoList(bossAzResumeRepo.getBossAzResumesBySalary(salary));
     }
 
     public List<BossAzResumeDto> getAllBossAzResumesBySalaryInterval(int minSalary, int maxSalary) {
-        return ResumeMapper.bossAzEntityListToDtoList(
+        return resumeMapper.bossAzEntityListToDtoList(
                 bossAzResumeRepo.getBossAzResumesBySalaryInterval(minSalary, maxSalary));
     }
 
     public List<SmartJobAzResumeDto> getAllSmartJobAzResumesBySalary(Double salary) {
-        return ResumeMapper.smartJobAzEntityListToDtoList(
+        return resumeMapper.smartJobAzEntityListToDtoList(
                 smartJobAzResumeRepo.getSmartJobAzResumesBySalary(salary));
     }
 
     public List<SmartJobAzResumeDto> getAllSmartJobAzResumesBySalaryInterval(Double minSalary, Double maxSalary) {
-        return ResumeMapper.smartJobAzEntityListToDtoList(
+        return resumeMapper.smartJobAzEntityListToDtoList(
                 smartJobAzResumeRepo.getSmartJobAzResumesBySalaryInterval(minSalary, maxSalary));
     }
 

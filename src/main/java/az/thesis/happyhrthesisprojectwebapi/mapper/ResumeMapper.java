@@ -36,4 +36,8 @@ public interface ResumeMapper {
 
     JobApplicantResume jobApplicantResumeDtoToEntity(JobApplicantResumeDto dto);
 
+    List<JobApplicantResumeDto> jobApplicantEntityListToDtoList(List<JobApplicantResume> entityList);
+
+    List<JobApplicantResume> jobApplicantDtoListToEntityList(List<JobApplicantResumeDto> dtoList);
+
 }

@@ -5,12 +5,12 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "user_resumes")
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder(toBuilder = true)
+@Table(name = "job_applicant_resumes")
 public class JobApplicantResume {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,7 +22,9 @@ public class JobApplicantResume {
     private int age;
     private String gender;
     private String phone;
+    private String email;
     private String skills;
     private String education;
     private String experience;
+    private Boolean isActive = false;
 }

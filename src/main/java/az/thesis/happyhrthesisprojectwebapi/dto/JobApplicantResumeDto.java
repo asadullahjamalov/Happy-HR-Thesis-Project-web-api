@@ -11,6 +11,7 @@ public class JobApplicantResumeDto {
     private int age;
     private String gender;
     private String phone;
+    private String email;
     private String skills;
     private String education;
     private String experience;
@@ -18,8 +19,8 @@ public class JobApplicantResumeDto {
     public JobApplicantResumeDto() {
     }
 
-    public JobApplicantResumeDto(String occupation, int salary, String name, String city, int age,
-                                 String gender, String phone, String skills, String education, String experience) {
+    public JobApplicantResumeDto(String occupation, int salary, String name, String city, int age, String gender,
+                                 String phone, String email, String skills, String education, String experience) {
         this.occupation = occupation;
         this.salary = salary;
         this.name = name;
@@ -27,6 +28,7 @@ public class JobApplicantResumeDto {
         this.age = age;
         this.gender = gender;
         this.phone = phone;
+        this.email = email;
         this.skills = skills;
         this.education = education;
         this.experience = experience;
@@ -86,6 +88,14 @@ public class JobApplicantResumeDto {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getSkills() {
